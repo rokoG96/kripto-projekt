@@ -1,3 +1,3 @@
-#Opis
+# Opis
 
 Izrada projekta iz kriptovaluta
