@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<br/>
+	<form action="{{ url_for('block') }}" method="post" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Upišite visinu ili hash bloka" aria-label="Search" type="text" name="blok">
+        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
+	</form>
+	<br/>
+	<h3>Pojedinosti o bloku {{visina}}</h3>
+	<p> 
+		<b> Broj transakcija u bloku: </b> {{value[0]}} <br/>
+		<b>Hash bloka: </b> {{value[1]}} <br/>
+		<b>Broj potvrda: </b> {{value[2]}} <br/>
+		<b>Blok izrudaren: </b> {{value[3]}} <br/>
+		<b>Veličina bloka: </b> {{value[4]}} <br/>
+		<b>Visina bloka: </b> {{value[5]}} <br/>
+		<b>Verzija bloka: </b> {{value[6]}} <br/>
+		<b>Merkle root bloka: </b> {{value[7]}} <br/>
+		<b>Težina: </b> {{value[8]}} <br/>
+		<b>Vrijednost transakcija u bloku: </b> {{ukupno}} tBTC <br/>
+	</p>
+	<p> 
+		<b>Transakcije u bloku: </b> <br/>
+		{%for i in value[9]%}
+			<p>{{i}}</p>
+		{%endfor%} 
+	</p>
+
+	<br/>
+	<br/>
+	<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
+{% endblock content %}

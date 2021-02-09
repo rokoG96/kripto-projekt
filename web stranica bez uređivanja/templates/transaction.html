@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<br/>
+	<form action="{{ url_for('transaction') }}" method="post" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Upišite transakciju" aria-label="Search" type="text" name="transakcija">
+        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
+    </form>
+    <br/>
+	<h4>Pojedinosti o transakciji {{tx}}</h4>
+	<h5>Ulazi transakcije i njihove vrijednosti: <br/></h5>
+	{%for x,y in value1%}
+		<p> {{x}}:  
+			{{y}} tBTC </p> 
+	{%endfor%}
+
+	<h5>Izlazi transakcije i njihove vrijednosti: <br/></h5>
+	{%for x,y in value2%}
+		<p> {{x}}:  
+			{{y}} tBTC </p> 
+	{%endfor%}
+
+	<h5>Dodatno: <br/></h5>
+		<p>Ukupno ulaza: {{value3}} tBTC</p>
+		<p>Ukupno izlaza: {{value4}} tBTC</p>
+		<p>Naknada za rudara: {{value5}} tBTC</p>
+
+	<br/>
+	<br/>
+	<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
+{% endblock content %}
