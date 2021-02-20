@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<style type="text/css">
+		h4 {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 7px;
+		}
+		h5 {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 7px;
+		}
+		p {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;
+		}
+		span {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;	
+		}
+	</style>
+
+	<br/>
+	<form action="{{ url_for('transaction') }}" method="post" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Upišite transakciju" aria-label="Search" type="text" name="transakcija">
+        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
+    </form>
+    <br/>
+
+	<h4 >Pojedinosti o transakciji {{tx}}</h4>
+	<span>
+	<h5> <b> Ulazi transakcije (ukupno {{inn}}) i njihove vrijednosti: </b> </h5>
+	<table>
+	<tr>
+		<th> Adresa </th>
+		<th> Vrijednost ulaza </th>
+	</tr>
+	{%for x,y in value1%}
+	<tr>
+		 <td> <form action="{{ url_for('address') }}" method="post" >
+	  						<button class="btn btn-outline-success" type='submit' name = 'add2' value="{{x}}"> {{x}} </button>
+						  </form> </td>
+		<td> {{y}} tBTC </td>
+	</tr>
+	{%endfor%}
+	</table>
+	</span>
+	<br/>
+
+	<span>
+	<h5> <b> Izlazi transakcije (ukupno {{out}}) i njihove vrijednosti: </b></h5>
+	<table>
+	<tr>
+		<th> Adresa </th>
+		<th> Vrijednost izlaza </th>
+	</tr>
+	{%for x,y in value2%}
+	<tr>
+		 <td> <form action="{{ url_for('address') }}" method="post" >
+	  						<button class="btn btn-outline-success" type='submit' name = 'add2' value="{{x}}"> {{x}} </button>
+						  </form> </td>
+		<td> {{y}} tBTC </td>
+	</tr>
+	{%endfor%}
+	</table>
+	</span>
+	<br/>
+
+	<h5> <b> Dodatno: </b></h5>
+		<p>
+		<b> Ukupna vrijednost ulaza: </b> {{value3}} tBTC <br/>
+		<b> Ukupna vrijednost izlaza: </b> {{value4}} tBTC <br/>
+		<b> Naknada za rudara: </b> {{value5}} tBTC <br/>
+		</p>
+
+	<br/>
+	<br/>
+	<p>Želite istražiti nešto drugo? <a href="/home"</a> <i class="fa fa-home w3-large" > Početna </i>
+		
+{% endblock content %}

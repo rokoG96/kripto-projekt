@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<style type="text/css">
+		h3 {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 7px;
+		}
+		p {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 7px;
+		}
+		span {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 7px;
+		}
+	</style>
+
+	<br/>
+	<form action="{{ url_for('block') }}" method="post" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Upišite visinu ili hash bloka" aria-label="Search" type="text" name="blok">
+        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
+	</form>
+	<br/>
+	<h3>Pojedinosti o bloku {{visina}}</h3>
+	<p> 
+		<b> Broj transakcija u bloku: </b> {{value[0]}} <br/>
+		<b>Hash bloka: </b> {{value[1]}} <br/>
+		<b>Broj potvrda: </b> {{value[2]}} <br/>
+		<b>Blok izrudaren: </b> {{value[3]}} <br/>
+		<b>Veličina bloka: </b> {{value[4]}} bytes <br/>
+		<b>Visina bloka: </b> {{value[5]}} <br/>
+		<b>Verzija bloka: </b> {{value[6]}} <br/>
+		<b>Merkle root bloka: </b> {{value[7]}} <br/>
+		<b>Težina: </b> {{value[8]}} <br/>
+		<b>Vrijednost transakcija u bloku: </b> {{ukupno}} tBTC <br/>
+	</p>
+	<span> 
+		<b>Transakcije u bloku: </b>
+		<table>
+			<tr>
+				<th>ID transakcije</th>
+			</tr>
+			{%for i in value[9]%}
+			<tr>
+				<td><form action="{{ url_for('transaction') }}" method="post" >
+				<button class="btn btn-outline-success" type='submit' name = 'tx3' value="{{i}}"> {{i}} </button>
+			</form>
+			</td>
+			</tr>
+		{%endfor%}
+		</table> 
+	</span>
+
+	<br/>
+	<br/>
+	<p>Želite istražiti nešto drugo? <a href="/home"</a> <i class="fa fa-home w3-large" > Početna </i>
+
+{% endblock content %}

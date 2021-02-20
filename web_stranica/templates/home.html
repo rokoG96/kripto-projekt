@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<style type="text/css">
+		span {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;
+		}
+		li {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+		}
+		h5 {
+			display: grid;
+			background-color: white;
+			border-radius: 10px;
+		}
+		table {
+			display: grid;
+			border-collapse: separate;
+			border-spacing: 25px 0;
+		}
+	</style>
+
+	<br/>
+	<span>
+	<h2><i class="fa fa-btc w3-large"></i> Searchblock </h2> <br/>
+	<h4>Saznajte informacije o adresama, transakcijama i blokovima na bitcoin testnet mreži.</h4>
+	</span>
+	<br/>
+	<span>
+	<h5>Najnoviji blokovi na mreži: <br/></h5>
+	<table>
+		<tr>
+		<th> Visina bloka </th>
+		<th> Vrijeme </th>
+		<th> Veličina </th>
+		</tr>
+		{%for i in value%}
+		<tr>
+			<td> <form action="{{ url_for('block') }}" method="post" >
+	  			<button class="btn btn-outline-success" type='submit' name = 'blok2' value="{{i[5]}}"> {{i[5]}} </button>
+				</form>
+			</td>
+			<td> {{i[3]}} </td>
+			<td> {{i[4]}} bytes </td>
+		</tr>
+		{%endfor%}
+	</table>
+	</span>
+	<br/>
+	<span>
+	<h5>Transakcije u mempoolu: <br/></h5>
+	<table>
+		<tr>
+		<th> ID transakcije bloka </th>
+		<th> Vrijeme </th>
+		<th> Veličina </th>
+		</tr>
+		{%for i in txmempool%}
+		<tr>
+			<td> <form action="{{ url_for('transaction') }}" method="post" >
+	  			<button class="btn btn-outline-success" type='submit' name = 'tx2' value="{{i[0]}}"> {{i[0]}} </button>
+				</form>
+			</td>
+			<td> {{i[2]}} </td>
+			<td> {{i[1]}} bytes </td>
+		</tr>
+		{%endfor%}
+	</table>
+	</span>
+	<br/>
+	<br/>
+	<span>
+	   Saznajte više o: <br/>
+	   <li> <a href="/address_form"</a> <i class="fa fa-address-card w3-large" > adresi </i> </li>
+	   <li> <a href="/transaction_form"</a> <i class="fa fa-exchange w3-large"> transakciji </i> </li> 
+	   <li> <a href="/block_form"</a> <i class="fa fa-cube w3-large" > bloku </i> </li>
+	</span>
+		
+{% endblock content %}
