@@ -2,49 +2,50 @@
 
 {% block content %}
 
-	<style type="text/css">
-		h3 {
-			display: grid;
-			background-color: white;
-			border-radius: 10px;
-			padding: 7px;
-		}
-		p {
-			display: grid;
-			background-color: white;
-			border-radius: 10px;
-			padding: 7px;
-		}
-	</style>
+<style type="text/css">
+	h3 {
+		display: grid;
+		background-color: white;
+		border-radius: 10px;
+		padding: 7px;
+	}
 
-	<br/>
-	<form action="{{ url_for('address') }}" method="post" class="d-flex">
-	        <input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text" name="adresa">
-	        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
-	</form>
-	<br/>
-	<h3>Pojedinosti o adresi {{ad}}</h3>
-	<p>
-	<b>Valjana adresa: </b> {{value[0]}} <br/>
-	<b>Heksadecimalni prikaz pubkey skripte: </b> {{value[1]}} <br/>
-	<b>Pripada li adresa poslužitelju: </b> {{value[2]}} <br/>
-	<b>Možemo li trošiti bitcoine sa ove adrese: </b> {{value[3]}} <br/>
- 	<b>Dozvoljeno samo gledanje: </b> {{value[4]}} <br/>
-	<b>Je li ključ adrese skripta: </b> {{value[5]}} <br/>
-	<b>Je li adresa svjedok: </b> {{value[6]}} <br/>
+	p {
+		display: grid;
+		background-color: white;
+		border-radius: 10px;
+		padding: 7px;
+	}
+</style>
+
+<br />
+<form action="{{ url_for('address') }}" method="post" class="d-flex">
+	<input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text"
+		name="adresa">
+	<button class="btn btn-outline-success" type="submit">Pretraži!</button>
+</form>
+<br />
+<h3>Pojedinosti o adresi {{ad}}</h3>
+<p>
+	<b>Valjana adresa: </b> {{value[0]}} <br />
+	<b>Heksadecimalni prikaz pubkey skripte: </b> {{value[1]}} <br />
+	<b>Pripada li adresa poslužitelju: </b> {{value[2]}} <br />
+	<b>Možemo li trošiti bitcoine sa ove adrese: </b> {{value[3]}} <br />
+	<b>Dozvoljeno samo gledanje: </b> {{value[4]}} <br />
+	<b>Je li ključ adrese skripta: </b> {{value[5]}} <br />
+	<b>Je li adresa svjedok: </b> {{value[6]}} <br />
 	{%if value[6] == True %}
-		<b>Verzija svjedoka: </b> {{value[7]}} <br/>
-		<b>Program svjedoka: </b> {{value[8]}} <br/>
-		<b>Je li adresa korištena za vraćanje ostatka: </b> {{value[9]}} <br/>
-		<b>Oznake vezane za adresu: </b> {{value[10]}} <br/>
+	<b>Verzija svjedoka: </b> {{value[7]}} <br />
+	<b>Program svjedoka: </b> {{value[8]}} <br />
+	<b>Je li adresa korištena za vraćanje ostatka: </b> {{value[9]}} <br />
+	<b>Oznake vezane za adresu: </b> {{value[10]}} <br />
 	{%else%}
-		<b>Je li adresa korištena za vraćanje ostatka: </b> {{value[7]}} <br/>
-		<b>Oznake vezane za adresu: </b> {{value[8]}} <br/>
+	<b>Je li adresa korištena za vraćanje ostatka: </b> {{value[7]}} <br />
+	<b>Oznake vezane za adresu: </b> {{value[8]}} <br />
 	{%endif%}
-	</p>
-	<br/>
-	<br/>
-	<p>Želite istražiti nešto drugo? <a href="/home"</a> <i class="fa fa-home w3-large" > Početna </i>
-		
-{% endblock content %}
+</p>
+<br />
+<br />
+<p>Želite istražiti nešto drugo? <a href="/home" </a> <i class="fa fa-home w3-large"> Početna </i>
 
+		{% endblock content %}
