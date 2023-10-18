@@ -2,14 +2,14 @@
 
 {% block content %}
 
-	<br/>
-	<form action="{{ url_for('address') }}" method="post" class="d-flex">
-	        <input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text" name="adresa">
-	        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
-	</form>
-	<br/>
-	<br/>
-	<p>Želite istražiti nešto drugo? <a href="/home"</a> <i class="fa fa-home w3-large" > Početna </i>
-		
-{% endblock content %}
+<br />
+<form action="{{ url_for('address') }}" method="post" class="d-flex">
+	<input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text"
+		name="adresa">
+	<button class="btn btn-outline-success" type="submit">Pretraži!</button>
+</form>
+<br />
+<br />
+<p>Želite istražiti nešto drugo? <a href="/home" </a> <i class="fa fa-home w3-large"> Početna </i>
 
+		{% endblock content %}

@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<br/>
-	<form action="{{ url_for('transaction') }}" method="post" class="d-flex">
-	  	<input class="form-control me-2" type="search" placeholder="Upišite transakciju" aria-label="Search" type="text" name="transakcija">
-	  	<button class="btn btn-outline-success" type="submit">Pretraži!</button>
-	</form>
-	<br/>
-	<br/>
-	<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
+<br />
+<form action="{{ url_for('transaction') }}" method="post" class="d-flex">
+	<input class="form-control me-2" type="search" placeholder="Upišite transakciju" aria-label="Search" type="text"
+		name="transakcija">
+	<button class="btn btn-outline-success" type="submit">Pretraži!</button>
+</form>
+<br />
+<br />
+<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
 
 {% endblock content %}

@@ -1,25 +1,25 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<br/>
-	<form action="{{ url_for('address') }}" method="post" class="d-flex">
-	        <input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text" name="adresa">
-	        <button class="btn btn-outline-success" type="submit">Pretraži!</button>
-	</form>
-	<br/>
-	<h3>Pojedinosti o adresi {{ad}}</h3>
-	<p> <b>Valjana adresa: </b> {{value[0]}}</p>
-	<p> <b>Heksadecimalni prikaz pubkey skripte: </b> {{value[1]}}</p>
-	<p> <b>Pripada li adresa poslužitelju: </b> {{value[2]}}</p>
-	<p> <b>Možemo li trošiti bitcoine sa ove adrese: </b> {{value[3]}}</p>
-	<p> <b>Dozvoljeno samo gledanje: </b> {{value[4]}}</p>
-	<p> <b>Je li ključ adrese skripta: </b> {{value[5]}}</p>
-	<p> <b>Je li adresa svjedok: </b> {{value[6]}}</p>
-	<p> <b>Je li adresa korištena za vraćanje ostatka: </b> {{value[7]}}</p>
-	<p> <b>Oznake vezane za adresu: </b> {{value[8]}}</p>
+<br />
+<form action="{{ url_for('address') }}" method="post" class="d-flex">
+	<input class="form-control me-2" type="search" placeholder="Upišite adresu" aria-label="Search" type="text"
+		name="adresa">
+	<button class="btn btn-outline-success" type="submit">Pretraži!</button>
+</form>
+<br />
+<h3>Pojedinosti o adresi {{ad}}</h3>
+<p> <b>Valjana adresa: </b> {{value[0]}}</p>
+<p> <b>Heksadecimalni prikaz pubkey skripte: </b> {{value[1]}}</p>
+<p> <b>Pripada li adresa poslužitelju: </b> {{value[2]}}</p>
+<p> <b>Možemo li trošiti bitcoine sa ove adrese: </b> {{value[3]}}</p>
+<p> <b>Dozvoljeno samo gledanje: </b> {{value[4]}}</p>
+<p> <b>Je li ključ adrese skripta: </b> {{value[5]}}</p>
+<p> <b>Je li adresa svjedok: </b> {{value[6]}}</p>
+<p> <b>Je li adresa korištena za vraćanje ostatka: </b> {{value[7]}}</p>
+<p> <b>Oznake vezane za adresu: </b> {{value[8]}}</p>
 
-	<br/>
-	<br/>
-	<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
+<br />
+<br />
+<p>Želite istražiti nešto drugo? Vratite se na <a href="/home">početnu stranicu</a></p>
 {% endblock content %}
-
